@@ -1,6 +1,7 @@
 from telegram.ext import Updater
+from .secret import secret_token
 
-updater = Updater("768603385:AAE1udrR023NTST7Mi2DgUQSYOShXFQgHzQ", use_context=True)
+updater = Updater(secret_token, use_context=True)
 dispatcher = updater.dispatcher
 
 import logging
