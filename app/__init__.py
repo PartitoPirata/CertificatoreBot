@@ -16,7 +16,8 @@ def help_fun(update, context):
         "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito.",
         "babele": "babele è il più fico di tutti",
         "solibo": "aspetta il deploy",
-        "cal": "Cal non esiste davvero, è solo il mio autore"
+        "cal": "Cal non è qui",
+        "tesoreria": "Il tuo certificatore dovrebbe averti comunicato l'ammontare della quota, le coordinate per il pagamento sono su questa pagina: https://www.partito-pirata.it/donazioni/"
     }
 
     try:
