@@ -16,11 +16,15 @@ def help_fun(update, context):
         "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito."
     }
 
-    argomento = update.message.text[6:] 
-    if argomento in topic:
-        risposta = topic[argomento]
-    else:
-        risposta = "Non ho capito. Gli argomenti disponibili sono {}".format(', '.join(topic))
+    try:
+        argomento = update.message.text.split()[1]
+        
+        if argomento in topic:
+            risposta = topic[argomento]
+        else:
+            risposta = "Non ho capito. Per conoscere gli argomenti disponibili, invoca /help"
+    except IndexError:
+        risposta = "Ciao, sono un bot che può risponderti su alcuni argomenti.\n\nGli argomenti disponibili sono: {}.".format(', '.join(topic))
         
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=risposta)
