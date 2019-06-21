@@ -27,7 +27,7 @@ def help_fun(update, context):
         else:
             risposta = "Non ho capito. Per conoscere gli argomenti disponibili, invoca /help"
     except IndexError:
-        risposta = "Ciao, sono un bot che può risponderti su alcuni argomenti.\n\nGli argomenti disponibili sono: {}.".format(', '.join(topic))
+        risposta = "Ciao, sono un bot che può risponderti su alcuni argomenti. Gli argomenti disponibili sono: {}.\n\nChiedi con /help argomento".format(', '.join(topic))
         
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=risposta)
