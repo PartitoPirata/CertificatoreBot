@@ -13,7 +13,10 @@ from telegram.ext import CommandHandler
 def help_fun(update, context):
     topic = {
         "lince": "Wovon man nicht sprechen kann, darüber muß man schweigen.",
-        "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito."
+        "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito.",
+        "babele": "babele è il più fico di tutti",
+        "solibo": "aspetta il deploy",
+        "cal": "Cal non esiste davvero, è solo il mio autore"
     }
 
     try:
