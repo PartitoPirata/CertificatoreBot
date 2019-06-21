@@ -12,7 +12,7 @@ from telegram.ext import CommandHandler
 
 def help_fun(update, context):
     topic = {
-        "lince": "Lince non esiste, te lo sei immaginato.",
+        "lince": "Wovon man nicht sprechen kann, darüber muß man schweigen.",
         "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito."
     }
 
