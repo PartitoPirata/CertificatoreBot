@@ -8,34 +8,47 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
 
+from collections import defaultdict
+from telegram import ParseMode
+
 def welcome_fun(update, context):
+    additional_messages = defaultdict(lambda: "")
+    additional_messages.update({
+    -1001287088369: "Questa chat è dedicata a prendere appuntamento con i certificatori per finalizzare la tua adesione al partito pirata. Chiedi di loro e aspetta che rispondano. Una volta preso un appuntamento sarai rimoss@ da questa chat e aggiunto alle altre, se lo desideri.", # ppLounge
+    -239595992: "Ciao, Cal.", # muahahah playground (a testing chat)
+    -379858320: "Questa è la chat dei certificatori del partito pirata. Sei sicur@ di essere nel posto giusto?", # ppCertificatori
+    -1001071747041: "La Tolda dei Pirati è un luogo di discussione libera e senza particolari vincoli, ed *è un gruppo pubblico*. Nel caso ti interessino, ci sono anche dei gruppi Telegram locali, <a href=\"https://forum.partito-pirata.it/t/contatti-dei-gruppi-locali-del-partito-pirata/2531\">elencati sul forum</a>."
+    })
+
     chat_id = update.message.chat_id
     for user in update.message.new_chat_members:
-        text = "Benvenut@ in ppLounge, {}. Questa chat è dedicata a prendere appuntamento con i certificatori per finalizzare la tua adesione al partito pirata. Chiedi di loro e aspetta che rispondano. Una volta preso un appuntamento sarai rimoss@ da questa chat e aggiunto alle altre, se lo desideri.".format(user.first_name)
-        context.bot.send_message(chat_id=chat_id, text=text)
+        params = {
+        "chat_name": update.message.chat.title,
+        "user": user.first_name,
+        "additional_message": additional_messages[chat_id]
+        }
+        text = "Benvenut@ in {chat_name}, <b>{user}</b>. {additional_message}".format(**params)
+        context.bot.send_message(chat_id=chat_id, text=text, parse_mode=ParseMode.HTML)
 
 def help_fun(update, context):
-    topic = {
-        "lince": "Wovon man nicht sprechen kann, darüber muß man schweigen.",
-        "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito.",
-        "babele": "babele è il più fico di tutti",
-        "solibo": "aspetta il deploy",
-        "cal": "Cal non è qui",
-        "tesoreria": "Il tuo certificatore dovrebbe averti comunicato l'ammontare della quota, le coordinate per il pagamento sono su questa pagina: https://www.partito-pirata.it/donazioni/"
-    }
+    non_ho_capito = "Non ho capito. Per conoscere gli argomenti disponibili, invoca /help"
+    topic = defaultdict(lambda: non_ho_capito)
+    topic.update({
+    "lince": "Wovon man nicht sprechen kann, darüber muß man schweigen.",
+    "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito.",
+    "babele": "babele è il più fico di tutti",
+    "solibo": "aspetta il deploy",
+    "cal": "Cal non è qui",
+    "pagamenti": "Il tuo certificatore dovrebbe averti comunicato l'ammontare della quota, le coordinate per il pagamento sono su questa pagina: https://www.partito-pirata.it/donazioni/"
+    })
 
     try:
-        argomento = update.message.text.split()[1]
-
-        if argomento in topic:
-            risposta = topic[argomento]
-        else:
-            risposta = "Non ho capito. Per conoscere gli argomenti disponibili, invoca /help"
+        risposta = topic[update.message.text.split()[1]]
     except IndexError:
-        risposta = "Ciao, sono un bot che può risponderti su alcuni argomenti. Gli argomenti disponibili sono: {}.\n\nChiedi con /help argomento".format(', '.join(topic))
+        risposta = "Ciao, sono un bot che può risponderti su alcuni argomenti. Gli argomenti disponibili sono: {}.\n\nChiedi con /help argomento".format(', '.join(sorted(topic)))
 
     context.bot.send_message(chat_id=update.message.chat_id,
-                             text=risposta)
+    text=risposta, parse_mode=ParseMode.MARKDOWN)
 
 
 
