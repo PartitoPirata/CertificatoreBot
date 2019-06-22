@@ -8,7 +8,11 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
 
-from telegram.ext import CommandHandler
+def welcome_fun(update, context):
+    chat_id = update.message.chat_id
+    for user in update.message.new_chat_members:
+        text = "Benvenuto in ppLounge, {}. Questa chat è dedicata a prendere appuntamento con i certificatori per finalizzare la tua adesione al partito pirata. Chiedi di loro e aspetta che rispondano. Una volta preso un appuntamento sarai rimosso da questa chat e aggiunto alle altre, se lo desideri.".format(user.first_name)
+        context.bot.send_message(chat_id=chat_id, text=text)
 
 def help_fun(update, context):
     topic = {
@@ -22,17 +26,20 @@ def help_fun(update, context):
 
     try:
         argomento = update.message.text.split()[1]
-        
+
         if argomento in topic:
             risposta = topic[argomento]
         else:
             risposta = "Non ho capito. Per conoscere gli argomenti disponibili, invoca /help"
     except IndexError:
         risposta = "Ciao, sono un bot che può risponderti su alcuni argomenti. Gli argomenti disponibili sono: {}.\n\nChiedi con /help argomento".format(', '.join(topic))
-        
+
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=risposta)
 
-help_handler = CommandHandler('help', help_fun)
 
-dispatcher.add_handler(help_handler)
+
+from telegram.ext import CommandHandler, MessageHandler, Filters
+
+dispatcher.add_handler(CommandHandler('help', help_fun))
+dispatcher.add_handler(MessageHandler(Filters.status_update.new_chat_members, welcome_fun))
