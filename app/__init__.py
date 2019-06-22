@@ -11,7 +11,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 def welcome_fun(update, context):
     chat_id = update.message.chat_id
     for user in update.message.new_chat_members:
-        text = "Benvenuto in ppLounge, {}. Questa chat è dedicata a prendere appuntamento con i certificatori per finalizzare la tua adesione al partito pirata. Chiedi di loro e aspetta che rispondano. Una volta preso un appuntamento sarai rimosso da questa chat e aggiunto alle altre, se lo desideri.".format(user.first_name)
+        text = "Benvenut@ in ppLounge, {}. Questa chat è dedicata a prendere appuntamento con i certificatori per finalizzare la tua adesione al partito pirata. Chiedi di loro e aspetta che rispondano. Una volta preso un appuntamento sarai rimoss@ da questa chat e aggiunto alle altre, se lo desideri.".format(user.first_name)
         context.bot.send_message(chat_id=chat_id, text=text)
 
 def help_fun(update, context):
