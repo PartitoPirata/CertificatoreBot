@@ -39,7 +39,8 @@ def help_fun(update, context):
     "babele": "babele è il più fico di tutti",
     "solibo": "aspetta il deploy",
     "cal": "Cal non è qui",
-    "pagamenti": "Il tuo certificatore dovrebbe averti comunicato l'ammontare della quota, le coordinate per il pagamento sono su questa pagina: https://www.partito-pirata.it/donazioni/"
+    "pagamenti": "Il tuo certificatore dovrebbe averti comunicato l'ammontare della quota, le coordinate per il pagamento sono su questa pagina: https://www.partito-pirata.it/donazioni/",
+    "sorgente": "https://github.com/PartitoPirata/CertificatoreBot"
     })
 
     try:
