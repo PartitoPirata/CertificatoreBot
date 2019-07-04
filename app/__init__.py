@@ -35,7 +35,7 @@ def help_fun(update, context):
     topic = defaultdict(lambda: non_ho_capito)
     topic.update({
     "lince": "Wovon man nicht sprechen kann, darüber muß man schweigen.",
-    "lqfb": "È troppo presto per parlarne, ma è un software che gestisce le mozioni politiche del partito.",
+    "lqfb": "LiquidFeedback è un software che gestisce le mozioni politiche del partito.\n\nPiù informazioni qui: https://www.partito-pirata.it/DocumentazioneLQFB/",
     "babele": "babele è il più fico di tutti",
     "solibo": "aspetta il deploy",
     "cal": "Cal non è qui",
