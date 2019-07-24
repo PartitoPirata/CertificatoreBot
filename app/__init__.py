@@ -17,7 +17,7 @@ def welcome_fun(update, context):
     -1001287088369: "Questa chat è dedicata a prendere appuntamento con i certificatori per finalizzare la tua adesione al partito pirata. Chiedi di loro e aspetta che rispondano. Una volta preso un appuntamento sarai rimoss@ da questa chat e aggiunto alle altre, se lo desideri.", # ppLounge
     -239595992: "Ciao, Cal.", # muahahah playground (a testing chat)
     -379858320: "Questa è la chat dei certificatori del partito pirata. Sei sicur@ di essere nel posto giusto?", # ppCertificatori
-    -1001071747041: "La Tolda dei Pirati è un luogo di discussione libera e senza particolari vincoli, ed *è un gruppo pubblico*. Nel caso ti interessino, ci sono anche dei gruppi Telegram locali, <a href=\"https://forum.partito-pirata.it/t/contatti-dei-gruppi-locali-del-partito-pirata/2531\">elencati sul forum</a>."
+    -1001071747041: "La Tolda dei Pirati è un luogo di discussione libera e senza particolari vincoli, ed *è un gruppo pubblico*. Nel caso ti interessino, ci sono anche dei gruppi Telegram locali, <a href=\"https://wiki.partito-pirata.it/Telegram\">elencati nella wiki</a>."
     })
 
     chat_id = update.message.chat_id
