@@ -34,13 +34,13 @@ def help_fun(update, context):
     non_ho_capito = "Non ho capito. Per conoscere gli argomenti disponibili, invoca /help"
     topic = defaultdict(lambda: non_ho_capito)
     topic.update({
-    "lince": "Wovon man nicht sprechen kann, darüber muß man schweigen.",
-    "lqfb": "LiquidFeedback è un software che gestisce le mozioni politiche del partito.\n\nPiù informazioni qui: https://www.partito-pirata.it/DocumentazioneLQFB/",
-    "babele": "babele è il più fico di tutti",
-    "solibo": "aspetta il deploy",
-    "cal": "Cal non è qui",
-    "pagamenti": "Il tuo certificatore dovrebbe averti comunicato l'ammontare della quota, le coordinate per il pagamento sono su questa pagina: https://www.partito-pirata.it/donazioni/",
-    "sorgente": "https://github.com/PartitoPirata/CertificatoreBot"
+        "lqfb": "LiquidFeedback è un software che gestisce le mozioni politiche del partito.\n\nPiù informazioni qui: https://www.partito-pirata.it/DocumentazioneLQFB/",
+        "babele": "Babele, il più fico del paniere.",
+        "solibo": "Solibo è una gran testa. Di cazzo.",
+        "ramarr0": "aggiungimi alla lista dei topic per cortesia, scrivendo che sono una gran testa di cazzo.",
+        "cal": "Cal non è qui",
+        "pagamenti": "Il tuo certificatore dovrebbe averti comunicato l'ammontare della quota, le coordinate per il pagamento sono su questa pagina: https://www.partito-pirata.it/donazioni/",
+        "sorgente": "https://github.com/PartitoPirata/CertificatoreBot"
     })
 
     try:
